@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Tienda de productos con búsqueda, categorías y carrito de compras"
+  />
+
+  <title>Tienda de Productos</title>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- NAVBAR -->
+  <header class="bg-gray-900 text-white shadow-lg">
+
+    <nav class="max-w-7xl mx-auto px-4 py-4">
+
+      <div class="flex items-center justify-between">
+
+        <!-- LOGO -->
+        <a href="#" class="text-2xl font-bold">
+          🛒 MiTienda
+        </a>
+
+        <!-- MENÚ ESCRITORIO -->
+        <div class="hidden md:flex items-center gap-8">
+
+          <a href="#" class="hover:text-blue-400 transition">
+            Inicio
+          </a>
+
+          <a href="#productos" class="hover:text-blue-400 transition">
+            Productos
+          </a>
+
+          <a href="#categorias" class="hover:text-blue-400 transition">
+            Categorías
+          </a>
+
+          <button
+            id="btnCarrito"
+            class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition"
+          >
+            🛒 Carrito
+            <span id="contadorCarrito"
+              class="ml-1 bg-white text-blue-600 px-2 py-1 rounded-full text-sm font-bold">
+              0
+            </span>
+          </button>
+
+        </div>
+
+        <!-- BOTÓN MÓVIL -->
+        <button
+          id="btnMenu"
+          class="md:hidden text-2xl"
+          aria-label="Abrir menú"
+        >
+          ☰
+        </button>
+
+      </div>
+
+      <!-- MENÚ MÓVIL -->
+      <div id="menuMovil" class="hidden md:hidden mt-4 border-t border-gray-700 pt-4">
+
+        <div class="flex flex-col gap-4">
+
+          <a href="#" class="hover:text-blue-400">
+            Inicio
+          </a>
+
+          <a href="#productos" class="hover:text-blue-400">
+            Productos
+          </a>
+
+          <a href="#categorias" class="hover:text-blue-400">
+            Categorías
+          </a>
+
+          <button
+            id="btnCarritoMovil"
+            class="bg-blue-600 px-4 py-2 rounded-lg text-left"
+          >
+            🛒 Carrito
+            <span id="contadorCarritoMovil">
+              0
+            </span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <!-- HERO -->
+  <section class="bg-blue-600 text-white">
+
+    <div class="max-w-7xl mx-auto px-4 py-16 text-center">
+
+      <h1 class="text-4xl md:text-6xl font-bold">
+        Encuentra lo que necesitas
+      </h1>
+
+      <p class="mt-4 text-lg md:text-xl text-blue-100">
+        Explora nuestros productos y agrega tus favoritos al carrito.
+      </p>
+
+      <!-- BUSCADOR -->
+      <div class="max-w-2xl mx-auto mt-8">
+
+        <div class="relative">
+
+          <input
+            id="buscador"
+            type="search"
+            value=""
+            
+            placeholder="Buscar productos..."
+            class="w-full px-5 py-4 pr-12 rounded-xl text-gray-800 outline-none focus:ring-4 focus:ring-blue-300"
+          />
+
+          <span class="absolute right-4 top-4 text-xl">
+            🔍
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORÍAS -->
+  <section id="categorias" class="max-w-7xl mx-auto px-4 py-12">
+
+    <div class="text-center mb-8">
+
+      <h2 class="text-3xl font-bold">
+        Categorías
+      </h2>
+
+      <p class="text-gray-600 mt-2">
+        Explora nuestros productos por categoría
+      </p>
+
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+      <button
+        class="categoria bg-white p-6 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition"
+        data-categoria="Todos"
+      >
+        <div class="text-4xl">🛍️</div>
+
+        <h3 class="font-bold mt-3">
+          Todos
+        </h3>
+      </button>
+
+      <button
+        class="categoria bg-white p-6 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition"
+        data-categoria="Tecnología"
+      >
+        <div class="text-4xl">💻</div>
+
+        <h3 class="font-bold mt-3">
+          Tecnología
+        </h3>
+      </button>
+
+      <button
+        class="categoria bg-white p-6 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition"
+        data-categoria="Hogar"
+      >
+        <div class="text-4xl">🏠</div>
+
+        <h3 class="font-bold mt-3">
+          Hogar
+        </h3>
+      </button>
+
+      <button
+        class="categoria bg-white p-6 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition"
+        data-categoria="Accesorios"
+      >
+        <div class="text-4xl">🎧</div>
+
+        <h3 class="font-bold mt-3">
+          Accesorios
+        </h3>
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTOS -->
+  <main id="productos" class="max-w-7xl mx-auto px-4 pb-16">
+
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+
+      <div>
+
+        <h2 class="text-3xl font-bold">
+          Nuestros productos
+        </h2>
+
+        <p class="text-gray-600 mt-2">
+          Selecciona los productos que deseas comprar.
+        </p>
+
+      </div>
+
+      <p id="cantidadResultados" class="text-gray-600">
+        0 productos
+      </p>
+
+    </div>
+
+
+    <!-- CONTENEDOR DE PRODUCTOS -->
+    <div
+      id="contenedorProductos"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+    >
+    </div>
+
+  </main>
+
+
+  <!-- CARRITO -->
+  <div
+    id="panelCarrito"
+    class="fixed inset-y-0 right-0 w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50"
+  >
+
+    <div class="h-full flex flex-col">
+
+      <!-- CABECERA -->
+      <div class="bg-gray-900 text-white p-5 flex items-center justify-between">
+
+        <h2 class="text-xl font-bold">
+          🛒 Mi carrito
+        </h2>
+
+        <button
+          id="cerrarCarrito"
+          class="text-2xl hover:text-red-400"
+          aria-label="Cerrar carrito"
+        >
+          ✕
+        </button>
+
+      </div>
+
+
+      <!-- PRODUCTOS CARRITO -->
+      <div
+        id="productosCarrito"
+        class="flex-1 overflow-y-auto p-5"
+      >
+      </div>
+
+
+      <!-- TOTAL -->
+      <div class="border-t p-5">
+
+        <div class="flex justify-between text-lg font-bold mb-4">
+
+          <span>
+            Total:
+          </span>
+
+          <span id="totalCarrito">
+            $0.00
+          </span>
+
+        </div>
+
+        <button
+          id="btnComprar"
+          class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-bold transition"
+        >
+          Finalizar compra
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- FONDO DEL CARRITO -->
+  <div
+    id="overlayCarrito"
+    class="fixed inset-0 bg-black/50 hidden z-40"
+  >
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-300">
+
+    <div class="max-w-7xl mx-auto px-4 py-8 text-center">
+
+      <p>
+        © 2026 MiTienda - Proyecto académico
+      </p>
+
+      <p class="text-sm mt-2 text-gray-500">
+        Desarrollado con HTML, JavaScript, Tailwind CSS y Vite.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+
+</html>
